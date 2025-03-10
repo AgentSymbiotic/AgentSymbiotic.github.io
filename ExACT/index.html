@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ExACT | Teaching AI Agents to Explore </title>
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="../static/css/bulma.min.css">
+    <link rel="stylesheet" href="../static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="../static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="../static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="../static/css/academicons.min.css">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="../static/css/index.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="../static/js/fontawesome.all.min.js"></script>
+    <script src="../static/js/bulma-carousel.min.js"></script>
+    <script src="../static/js/bulma-slider.min.js"></script>
+    <script src="../static/js/index.js"></script>
+
+    <style>
+        ul {
+            list-style-type: square;
+            margin-left: 2em;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-top: 2px solid #ccc;
+            border-bottom: 2px solid #ccc;
+        }
+        th, td {
+            text-align: center;
+            padding: 8px;
+        }
+        th {
+            background-color: #f8f8f8;
+            font-weight: 600;
+        }
+        th, td {
+            vertical-align: middle;
+        }
+        .caption {
+            font-family: Arial, sans-serif;
+            color: #666;
+            font-size: 14px;
+        }
+        .task-intent{
+            margin-left: 6px;
+            margin-right: 6px;
+            padding: 5px;
+            height: 80px;
+            background-color: #c4c4c449;
+            border-radius: 6px;
+        }
+        .task-intent-text{
+            font-family: Arial, sans-serif;
+            font-size: 15px;
+            color: black;
+        }
+
+        a {
+            color: #1a73e8;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+
+<section class="hero">
+    <div class="hero-body">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered">
+                <div class="column has-text-centered">
+                    <h1 class="title is-1 publication-title">Symbiotic Cooperation for Web Agents: Harnessing Complementary Strengths of Large and Small LLMs</h1>
+                    <!-- <h3 class="title is-4 conference-authors"><a target="_blank" href="https://icml.cc/">ICML 2023</a> -->
+                    </h3>
+                    <div class="is-size-5 publication-authors">
+            <!-- <span class="author-block">
+                <a target="_blank" href="https://jasonyux.com/">Xiao&#160;Yu</a><sup>1</sup>,
+                <a target="_blank" href="https://scholar.google.com/citations?user=u1CNjgwAAAAJ&hl=zh-CN">Baolin&#160;Peng</a><sup>2&dagger;</sup>,
+                <a target="_blank" href="https://vineethvajipey.github.io/">Vineeth&#160;Vajipey</a><sup>1</sup>,
+                <a target="_blank" href="https://sites.google.com/site/hcheng2site/">Hao&#160;Cheng</a><sup>2</sup>,
+                <a target="_blank" href="https://scholar.google.com/citations?user=rs1M7CAAAAAJ&hl=en">Michel&#160;Galley</a><sup>2</sup>,
+                <a target="_blank" href="https://scholar.google.com/citations?user=CQ1cqKkAAAAJ&hl=en">Jianfeng&#160;Gao</a><sup>2&#8225</sup>&
+                <a target="_blank" href="https://www.cs.columbia.edu/~zhouyu/">Zhou&#160;Yu</a><sup>1&#8225</sup>
+            </span> -->
+                    </div>
+
+                    <!-- <div class="is-size-5 publication-authors">
+                        <span class="author-block"><sup>1</sup>Columbia University, NY; </span>
+                        <span class="author-block"><sup>2</sup>Microsoft Research, Redmond; </span>
+                    </div> -->
+
+                    <!-- <div class="is-size-5 publication-authors">
+                        <span class="author-block">Work done during the first author's internship at NVIDIA</span>
+                    </div> -->
+
+                    <!-- <div class="is-size-5 publication-authors">
+                        <span class="author-block"><sup>&dagger;</sup>Project Lead</span>
+                        <span class="author-block"><sup>&#8225;</sup>Equal Advising </span>
+                    </div> -->
+
+                    <div class="column has-text-centered">
+                        <div class="publication-links">
+                            <!-- TODO PDF Link. -->
+                            <span class="link-block">
+                <a target="_blank" href="https://www.arxiv.org/abs/2502.07942"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+
+                <span class="link-block">
+                <a target="_blank" href="assets/agent.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>PDF</span>
+                </a>
+              </span>
+                            <!-- Code Link. -->
+                            <span class="link-block">
+                <a target="_blank" href="https://anonymous.4open.science/r/agent-0E80/README.md"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                </a>
+              </span>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- highlights -->
+<section class="section">
+    <div class="container is-max-widescreen">
+        <div class="rows">
+            <div class="rows is-centered">
+                <div class="row is-full-width">
+                    <div class="columns">
+                        <div class="column">
+                            <img src="assets/images/fig1.png" alt="Figure 2" width="100%" />
+                            <p class="caption">
+                                <strong>Figure 1:</strong> Overview of the <strong>AgentSymbiotic</strong> framework. Step <span style="color: red;">1</span>: The large LLM interacts with the environment to generate high-quality trajectories, which are then used to distill small LLMs.  
+Step <span style="color: red;">2</span>: Multi-task learning and Speculative Data Synthesis are applied during distillation to enhance the reasoning capabilities of the small LLM and mitigate off-policy bias between the two LLMs.  
+Step <span style="color: red;">3</span>: The small LLM further explores the environment to produce diverse and valuable trajectories.  
+Step <span style="color: red;">4</span>: Then the knowledge base containing high-quality trajectories and comprehensive trajectories is incorporated into the large LLM's RAG process, improving its performance.  
+This iterative process establishes a symbiotic improvement cycle, enhancing both large and small LLMs over time.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Introduction -->
+<section class="section">
+    <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+            <div class="column">
+                <h2 class="title is-3">Introduction</h2>
+                <div class="content has-text-justified">
+                    <p style="font-size: 125%">
+                        In this paper, we propose <strong>AgentSymbiotic</strong>, an iterative framework that <em>couples</em> data synthesis with task-performance, yielding a <span style=" font-style: italic; font-weight: bold;">“symbiotic improvement”</span> for both large and small LLMs.Our study uncovers a <em>complementary dynamic</em> between LLM types: while large LLMs excel at generating high-quality trajectories for distillation, the distilled small LLMs—owing to their distinct reasoning capabilities—often choose actions that diverge from those of their larger counterparts. This divergence drives the exploration of novel trajectories, thereby enriching the synthesized data.However, we also observe that the performance of small LLMs becomes a bottleneck in this iterative enhancement process. To address this, we propose two <em>innovations</em> in LLM distillation: a <span style=" font-style: italic; font-weight: bold;">speculative data synthesis</span> strategy that mitigates off-policy bias, and a <span style=" font-style: italic; font-weight: bold;">multi-task learning</span> approach designed to boost the reasoning capabilities of the student LLM.Furthermore, we introduce a <span style="font-style: italic; font-weight: bold;">Hybrid Mode for Privacy Preservation</span> to address user privacy concerns. Evaluated on the <strong>WebArena</strong> benchmark, <strong>AgentSymbiotic</strong> achieves SOTA performance with both LLM types. Our best Large LLM agent reaches <strong>52%</strong>, surpassing the previous best of <strong>45%</strong>, while our 8B distilled model demonstrates a competitive <strong>49%</strong>, exceeding the prior best of <strong>28%</strong>. 
+
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- RMCTS agent -->
+<section class="section">
+    <div class="container is-max-widescreen">
+        <div class="rows">
+            <div class="rows is-centered ">
+                <div class="row is-full-width">
+                    <h2 class="title is-3">
+                        <span class="dvima">AgentSymbiotic</span>
+                    </h2>
+                    <p style="font-size: 125%">
+                        Our contributions can be summarized as follows:
+<br>
+                        <strong>&#x25B6; <em>Synergistic Framework.</em> </strong>  
+                        We present a novel framework that establishes an iterative, symbiotic cycle between large and small LLMs, enabling them to leverage their complementary strengths for mutual enhancement.
+                        <br><br>
+                        <strong>&#x25B6; <em>Technical Innovations.</em> </strong>  
+                        We introduce two key advancements in distillation techniques: (a) a speculative data synthesis strategy to counteract off-policy bias and (b) a multi-task learning approach to maintain reasoning capabilities.
+                        <br><br>
+                        <div class="column">
+                            <img src="assets/images/fig2.png" alt="Figure 2" width="100%" />
+                            <p class="caption">
+                                <strong>Figure 2:</strong> Overview of two key innovations in LLM distillation:  
+(a) <strong>Speculative Data Synthesis</strong>, which mitigates off-policy bias by leveraging both large and small LLMs. At each step, the small LLM generates an action based on the observation, while the large LLM produces a set of top-<i>K</i> action candidates. If the small LLM's action is within the large LLM's top-<i>K</i> actions, it is accepted (<span style="color: #228B22;">&#10003;</span>); otherwise, the large LLM's action is chosen for subsequent interactions (<span style="color: #E51400;">&#10007;</span>).  
+(b) <strong>Multi-task Learning</strong>, which enhances reasoning capabilities by training small LLM to predict both actions and rationales, enabling it to handle multiple tasks and address missing reasoning capabilities during distillation. CoT indicates Chain-of-Thought.
+                            </p>
+                        </div>
+
+                        <br><p style="font-size: 125%">
+                        <strong>&#x25B6; <em>State-of-the-art Performance.</em> </strong>  
+                        Experiments show that on the WebArena benchmark, our method achieves state-of-the-art performance with both LLM types: the large LLM achieves 52\%, surpassing the previous best open-source 45\%, while our 8B distilled LLaMA-3 model achieves 49\%, approaching the performance of agents based on Claude-3.5.</p>
+                        <br>
+
+                        <table style="border-collapse: collapse; width: 100%; font-size: 16px;">
+                            <thead>
+                                <tr style="background-color: #f5f5f5;">
+                                    <th style="border: 0px solid #d5d5d5; padding: 4px 8px;">Method</th>
+                                    <th style="border: 0px solid #d5d5d5; padding: 4px 8px;">Model</th>
+                                    <th style="border: 0px solid #d5d5d5; padding: 4px 8px;">SR (%) ↑</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- <tr><td style="border: 1px solid #d5d5d5; padding: 4px 8px;">WebArena-replication</td><td style="border: 1px solid #d5d5d5; padding: 4px 8px;">GPT-4-Turbo</td><td style="border: 1px solid #d5d5d5; padding: 4px 8px; text-align: center;">16.5<sup>*</sup></td></tr>
+                                <tr style="background-color: #f9f9f9;"><td>AutoEval</td><td>GPT-4</td><td align="center">20.2<sup>*</sup></td></tr>
+                                <tr><td>Reflection</td><td>Claude-3.5</td><td align="center">32.4<sup>*</sup></td></tr>
+                                <tr style="background-color: #f9f9f9;"><td>SteP-replication</td><td>GPT-4-Turbo</td><td align="center">33.3<sup>*</sup></td></tr>
+                                <tr><td>LATS</td><td>Claude-3.5</td><td align="center">34.2<sup>*</sup></td></tr> -->
+                                <!-- <tr style="background-color: #f9f9f9;"><td>AWM</td><td>GPT-4</td><td align="center">35.6<sup>*</sup></td></tr>
+                                <tr><td>WebPilot</td><td>GPT-4o</td><td align="center">37.2<sup>*</sup></td></tr> -->
+                                <tr style="background-color: #f9f9f9;"><td>Learn-by-Interact</td><td>Claude-3.5</td><td align="center">39.2<sup>*</sup></td></tr>
+                                <tr><td>API-Based Agent</td><td>GPT-4o</td><td align="center">43.9<sup>*</sup></td></tr>
+                                <tr style="background-color: #f9f9f9;"><td>AgentOccam</td><td>GPT-4-Turbo</td><td align="center">45.7<sup>*</sup></td></tr>
+                                <tr><td>AgentOccam</td><td>Claude-3.5</td><td align="center">48.5</td></tr>
+                                <tr style="background-color: #e5e5e5; font-weight: bold;"><td><strong>AgentSymbiotic</strong></td><td>Claude-3.5</td><td align="center">52.1</td></tr>
+                                <tr>
+                                    <td colspan="3" style="border-top: 2px solid #000;"></td>
+                                </tr>
+                                <tr><td>Vanilla prompting</td><td>LLaMA-1B</td><td align="center">2.4</td></tr>
+                                <tr style="background-color: #f9f9f9;"><td>Vanilla prompting</td><td>LLaMA-8B</td><td align="center">5.6</td></tr>
+                                <tr><td>Vanilla prompting</td><td>DeepSeek-R1-8B</td><td align="center">8.5</td></tr>
+                                <tr style="background-color: #f9f9f9;"><td>Learn-by-Interact</td><td>Codegemma-7B</td><td align="center">17.9<sup>*</sup></td></tr>
+                                <tr><td>Learn-by-Interact</td><td>Codestral-22B</td><td align="center">28.0<sup>*</sup></td></tr>
+                                <tr style="background-color: #e5e5e5; "><td><strong>AgentSymbiotic</strong></td><td>LLaMA-1B</td><td align="center">24.1</td></tr>
+                                <tr style="background-color: #e5e5e5; "><td><strong>AgentSymbiotic</strong></td><td>DeepSeek-R1-8B</td><td align="center">43.6</td></tr>
+                                <tr style="background-color: #e5e5e5;"><td><strong>AgentSymbiotic</strong></td><td>LLaMA-8B</td><td align="center"><strong>48.5</strong></td></tr>
+                                <tr>
+                                    <td colspan="3" style="border-top: 2px solid #000;"></td>
+                                </tr>
+                                <tr style="background-color: #e5e5e5;"><td style="font-weight: bold;"><strong>AgentSymbiotic-Hybrid</strong></td><td>Claude-3.5 + LLaMA-8B</td><td align="center"><strong>50.5</strong></td></tr>
+                            </tbody>
+                        </table>
+                        <p style="font-size: 13px; margin-top: 5px; color: #555;">Comparison of final success rates (SR) among various large LLM and small LLM base agents on <b>WebArena</b>. Scores marked with <sup>*</sup> indicate cited scores from the corresponding papers' experiment scores.</p>
+                        <br><br>
+                        <p style="font-size: 125%">
+                        <strong>&#x25B6; <em>Hybrid Mode for Privacy Preservation.</em> </strong>  
+                        We integrate a hybrid mode for privacy preservation that directs sensitive tasks to a local small LLM, ensuring that private user data remains secure.</p>
+
+                        <br>
+                        <div class="column" style="text-align: center; display: flex; flex-direction: column; align-items: center;">
+                            <img src="assets/images/fig3.png" alt="Figure 2" style="width: 50%; margin: auto;" />
+                            <p class="caption" style="text-align: center;">
+                                <strong>Figure 3:</strong> The Privacy Detector analyzes each step's observation and action for private data. 
+                                If detected, a local small LLM ensures confidentiality by predicting the next action and reason. 
+                                Otherwise, a cloud-based large LLM handles predictions, leveraging its superior reasoning capabilities for non-sensitive tasks.
+                            </p>
+                        </div>
+                        <br><br>
+                        <p style="font-size: 125%">
+                            While the large LLM offers superior reasoning and broader knowledge, many web tasks involve confidential or high-stakes information (e.g., passwords and payment details) that must be handled with care. To safeguard user privacy, we propose a hybrid mode that allows the system 
+                            to automatically switch between a local small LLM and a cloud-based large LLM.
+                        
+                            This hybrid mode operates as follows:<br><br>
+                        <strong>Privacy Detection.</strong>
+                            Before processing any environment observation or action, the content is scanned by a local <code>DeepSeek-R1</code> model, which flags 
+                            potential private information—such as personally identifiable data or security tokens.<br>
+                            <br><strong>Local Processing.</strong>
+                            If the observation or action is deemed private, the decision-making step is delegated to the small LLM deployed locally.<br>
+                            <br><strong>Cloud Processing.</strong>
+                            If no private information is detected, the agent leverages the large, cloud-based LLM to benefit from its advanced capabilities.
+                        </p>
+                        <br>
+                        <div class="image-container" style="display: flex; justify-content: center; align-items: center; gap: 10%;">
+                            <img src="assets/images/fig4.png" alt="Figure 1" style="width: 30%;" />
+                            <img src="assets/images/fig5.png" alt="Figure 2" style="width: 30%;" />
+                        </div>
+                        <p class="caption" style="text-align: center;  margin: auto;">
+                            <strong>Figure 4:</strong> The Privacy Detector detects and categorizes tasks containing privacy information. We analyze their distribution to understand privacy interactions better.
+                        </p>
+
+                        <!-- In this work, we show that large and small LLMs can engage in a <strong>symbiotic</strong> relationship, which enhances both data synthesis and distillation in a <strong>coupled</strong> iterative manner, as illustrated in Figure 1. Specifically, we introduce <strong>AgentSymbiotic</strong>, a novel framework in which large and small LLMs collaborate through an iterative improvement cycle. The process is described as follows:
+                        <p style="margin: 0;font-size: 125%"><strong>&#x25B6; <em>Step 1</em> - Trajectory Generation:</strong>  
+                            The large LLM utilizes retrieval-augmented generation (RAG) to refine its performance. By learning from both successful and failed trajectories during rounds of self-interaction, it produces increasingly robust navigation paths.</p>
+                        
+                            <p style="margin: 0;font-size: 125%"><strong>&#x25B6; <em>Step 2</em> - Trajectory Distillation:</strong>  
+                            A multi-LLM debate mechanism is employed to evaluate the generated trajectories. Selected trajectories serve as critical data for distilling small LLMs.</p>
+                        
+                            <p style="margin: 0;font-size: 125%"><strong>&#x25B6; <em>Step 3</em> - Small LLM Exploration:</strong>  
+                            Small LLMs, distilled from the large LLM, are deployed to explore the environment more efficiently and extensively due to their faster inference speeds and increased stochasticity in action generation. This process uncovers diverse trajectories—including edge cases or novel solutions that the large LLM might overlook.</p>
+                        
+                            <p style="margin: 0;font-size: 125%"><strong>&#x25B6; <em>Step 4</em> - Symbiotic Improvement:</strong>  
+                            This iterative cycle creates a mutually beneficial loop: the large LLM refines its generation capabilities with enriched feedback from small LLM explorations, while the small LLM continually benefits from high-quality data and distilled expertise provided by the large LLM.</p>
+                         -->
+                    </p>
+                </div>
+                <br/>
+                <!-- <div class="row is-full-width">
+                    <video poster="" id="rotate" autoplay controls muted loop height="40%"
+                        playbackRate=2.0>
+                        <source src="assets/videos/rmcts-simplified.mp4"
+                            type="video/mp4">
+                    </video>
+                    <br>
+                     <p class="caption">Overview of an R-MCTS Agent. We omit value function reflection for brevity.</p>
+                </div> -->
+                <br/>
+                <!-- RMCTS result -->
+                <!-- <div class="row is-full-width">
+                    <p style="font-size: 125%">
+                        In our experiments (see table below), we find that:
+                    </p>
+                    <ul style="font-size: 125%">
+                        <li><strong>R-MCTS sets a new state-of-the-art</strong> across all VisualWebArena environments, achieving 6%-30% improvements over the previous best-performing method, Search Agent.</li>
+                        <li><strong>MCTS outperforms other search methods</strong> by effectively balancing exploration and exploitation via UCT, while others primarily rely on value-based guidance.</li>
+                        <li><strong>R-MCTS improves over MCTS</strong> by an average of 2.2 points using a single-agent value function.</li>
+                        <li><strong>Multi-agent debate integration boosts performance</strong>, adding another 1.6 point improvement on average for R-MCTS.</li>
+                    </ul>
+                </div> -->
+                <br/>
+                
+                <!-- RMCTS OSWorld result -->
+                <br/>
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Introduction -->
+<!-- <section class="section">
+    <div class="container is-max-widescreen">
+        <div class="rows">
+            <div class="rows is-centered ">
+                <h2 class="title is-3">
+                    <span class="dvima">Exploratory Learning</span>
+                </h2>
+                <div class="row is-full-width">
+                    <p style="font-size: 125%">
+                        We also explore how to teach agents to search and enable test-time compute scaling without relying on MCTS. To
+                        accomplish this, we introduce Exploratory Learning, which trains the agent to explore the environment, evaluate
+                        states, and backtrack to viable states when facing unpromising states. In our experiments with VisualWebArena, we find that:
+                    </p>
+                    <ul style="font-size: 125%">
+                        <li>Exploratory Learning <strong>boosts performance</strong>: GPT-4o fine-tuned with Exploratory Learning improves performance, even without search, similar to the effects of scaling test-time compute with MCTS (see demo (c) and (d) below).</li>
+                        <li>Exploratory Learning <strong>enables test-time compute scaling</strong>: The fine-tuned GPT-4o exhibits better performance when allowed more actions per task, enhancing decision-making and task completion.</li>
+                        <li>Exploratory Learning <strong>improves generalization to unseen tasks</strong>: The fine-tuned GPT-4o demonstrates improved performance on unseen tasks compared to no training/imitation learning on best actions.</li>
+                    </ul>
+                </div>
+                <br/>
+                <div class="row is-full-width">
+                    <video poster="" id="rotate" autoplay controls muted loop height="40%"
+                        playbackRate=2.0>
+                        <source src="assets/videos/learning-data.mp4"
+                            type="video/mp4">
+                    </video>
+                    <br>
+                     <p class="caption">Given a task and a trajectory from R-MCTS, (traditional) imitation learning removes intermediate search trees and directly trains GPT-4o to learn from the final executed actions; Exploratory learning flattens tree traversals into a single trajectory and trains GPT-4o to explore, evaluate, and backtrack.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->
+
+<!-- <section class="hero is-light is-small">
+    <div class="hero-body">
+        <div class="container">
+            <h2 class="title is-3">Demo</h2>
+            <div id="results" class="carousel results-carousel">
+                <div class="rows">
+                    <div class="row task-intent">
+                        <p class="task-intent-text">Task: Find all listings for <u><a href="assets/images/B07SK4W1VJ.0.jpg">this exact item</a></u> on OSClass and compare its price to the cheapest listing on OneStopMarket. Return the link of the cheaper item.
+                        </p>
+                    </div>
+                    <div class="item">
+                        <video poster="" id="rotate" autoplay muted loop height="50%"
+                               playbackRate=2.0>
+                            <source src="assets/videos/rmcts_demo/task_36/task_36.mp4"
+                                    type="video/mp4">
+                            <track src="assets/videos/rmcts_demo/task_36/task_36.vtt" 
+                                    kind="subtitles" srclang="en" label="English" default/>
+                        </video>
+                    </div>
+                    <div class="row">
+                        <p class="caption" style="margin: 13px"> (a) Task execution using our RMCTS agent. For brevity, we skip the intermediate search processes and directly display the best
+                            action found.</p>
+                    </div>
+                </div>
+                <div class="rows">
+                    <div class="row task-intent">
+                        <p class="task-intent-text">Task: Explore the "Furniture" category of Washington, D.C. and find me the most recent blue chair.</p>
+                    </div>
+                    <div class="item">
+                        <video poster="" id="rotate" autoplay muted loop height="50%"
+                               playbackRate=2.0>
+                            <source src="assets/videos/rmcts_demo/task_58/task_58.mp4"
+                                    type="video/mp4">
+                            <track src="assets/videos/rmcts_demo/task_58/task_58.vtt"
+                                    kind="subtitles" srclang="en" label="English" default/>
+                        </video>
+                    </div>
+                    <div class="row">
+                        <p class="caption" style="margin: 13px"> (b) Task execution using our RMCTS agent. For brevity, we skip the intermediate search processes and directly display the best
+                            action found.</p>
+                    </div>
+                </div>
+                <div class="rows">
+                    <div class="row task-intent">
+                        <p class="task-intent-text">Task: Find the most recently listed coffee maker with a touch screen. Add a 5 star rating with title "Great item" and text "Would recommend!".
+                        </p>
+                    </div>
+                    <div class="item">
+                        <video poster="" id="rotate" autoplay muted loop height="50%">
+                            <source src="assets/videos/tree_sft_demo/task_180/task_180.mp4"
+                                    type="video/mp4">
+                            <track src="assets/videos/tree_sft_demo/task_180/task_180.vtt"
+                                    kind="subtitles" srclang="en" label="English" default/>
+                        </video>
+                    </div>
+                    <div class="row">
+                        <p class="caption" style="margin: 13px"> (c) After exploratory learning, GPT-4o demonstrates the ability to explore, evaluate, and backtrack <em>without augmenting with
+                            search algorithms.</em></p>
+                    </div>
+                </div>
+                <div class="rows">
+                    <div class="row task-intent">
+                        <p class="task-intent-text">Task: Search for "MCAT" and navigate to the prep book that has 2020-2021 on the cover.
+                        </p>
+                    </div>
+                    <div class="item">
+                        <video poster="" id="rotate" autoplay muted loop height="100%">
+                            <source src="assets/videos/tree_sft_demo/task_127/task_127.mp4"
+                                    type="video/mp4">
+                            <track src="assets/videos/tree_sft_demo/task_127/task_127.vtt"
+                                    kind="subtitles" srclang="en" label="English" default/>
+                        </video>
+                    </div>
+                    <div class="row">
+                        <p class="caption" style="margin: 13px"> (d) After exploratory learning, GPT-4o demonstrates the ability to explore, evaluate, and backtrack <em>without augmenting with
+                            search algorithms.</em></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->
+
+
+<section class="section" id="BibTeX">
+    <div class="container is-max-widescreen content">
+        <h2 class="title">BibTeX</h2>
+        <pre><code>@article{zhang2025symbiotic,
+            title={Symbiotic Cooperation for Web Agents: Harnessing Complementary Strengths of Large and Small LLMs},
+            author={Zhang, Ruichen and Qiu, Mufan and Tan, Zhen and Zhang, Mohan and Lu, Vincent and Peng, Jie and Xu, Kaidi and Agudelo, Leandro Z and Qian, Peter and Chen, Tianlong},
+            journal={arXiv preprint arXiv:2502.07942},
+            year={2025}
+          }</code></pre>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column">
+                <div class="content has-text-centered">
+                    <p>
+                        Website template borrowed from <a
+                            href="https://github.com/nerfies/nerfies.github.io">NeRFies</a>, <a
+                            href="https://github.com/cliport/cliport.github.io">CLIPort</a>, and <a
+                            href="https://github.com/vimalabs/vimalabs.github.io">VIMA</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
